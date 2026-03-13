@@ -1,4 +1,3 @@
-/* --- Variables --- */
 :root {
   --bg: #0d0d0f;
   --bg-elevated: #16161a;
@@ -61,7 +60,6 @@ img {
   height: auto;
 }
 
-/* --- Header --- */
 .header {
   position: fixed;
   top: 0;
@@ -130,7 +128,6 @@ img {
   transition: var(--transition);
 }
 
-/* --- Hero --- */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -719,10 +716,9 @@ img {
 }
 
 .skill-item {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .skill-name {
@@ -732,7 +728,6 @@ img {
 
 .skill-bar {
   width: 100%;
-  max-width: 320px;
   height: 8px;
   background: var(--surface);
   border-radius: 999px;
@@ -741,7 +736,7 @@ img {
 
 .skill-fill {
   height: 100%;
-  width: var(--level, 0%);
+  width: 0;
   background: linear-gradient(90deg, var(--accent), #fbbf24);
   background-size: 200% 100%;
   border-radius: 999px;
@@ -761,59 +756,12 @@ img {
   100% { transform: translateX(100%); }
 }
 
-.section.skills .skill-fill {
-  width: 0;
-}
-
 .section.skills.visible .skill-fill {
   width: var(--level, 0%);
 }
 
-.contact {
-  background: var(--bg-elevated);
-  position: relative;
-}
-.contact::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 1px;
-  background: rgba(245, 158, 11, 0.25);
-  box-shadow: 0 0 20px 2px rgba(245, 158, 11, 0.15), 0 0 40px 8px rgba(245, 158, 11, 0.08);
-  filter: blur(1px);
-  pointer-events: none;
-}
-.contact::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 100px;
-  background: linear-gradient(to bottom, transparent 0%, rgba(13, 13, 15, 0.6) 50%, var(--bg) 100%);
-  pointer-events: none;
-}
-
-.contact-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
-}
-
-.contact-link {
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  position: relative;
-  transition: color var(--transition);
-}
-
 .footer {
   padding: 2.5rem 2rem;
-  border-top: none;
   text-align: center;
   background: linear-gradient(180deg, transparent, rgba(245, 158, 11, 0.03));
   position: relative;
@@ -875,14 +823,6 @@ img {
 
   .nav-toggle.open span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
-  }
-
-  .skill-item {
-    grid-template-columns: 1fr;
-  }
-
-  .skill-bar {
-    max-width: none;
   }
 
   .stats-row {
