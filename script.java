@@ -142,106 +142,91 @@
     });
   }
 
-  if (skillsSection) {
-    const observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      { threshold: 0.3, rootMargin: "0px 0px -50px 0px" }
-    );
-    observer.observe(skillsSection);
-  }
-
-  // THREE.JS - Modèle 3D du robot mBot
-  const canvas = document.getElementById('canvas3d');
-  if (canvas && typeof THREE !== 'undefined') {
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+  var canvas3d = document.getElementById('canvas3d');
+  if (canvas3d && typeof THREE !== 'undefined') {
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas3d, alpha: true, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0x000000, 0);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    var ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
     scene.add(ambientLight);
-    const pointLight = new THREE.PointLight(0xf59e0b, 1.5, 100);
+    var pointLight = new THREE.PointLight(0xf59e0b, 1.5, 100);
     pointLight.position.set(5, 10, 5);
     scene.add(pointLight);
-    const pointLight2 = new THREE.PointLight(0xfbbf24, 1, 100);
+    var pointLight2 = new THREE.PointLight(0xfbbf24, 1, 100);
     pointLight2.position.set(-5, 5, -5);
     scene.add(pointLight2);
 
-    const robot = new THREE.Group();
+    var robot = new THREE.Group();
 
-    const chassisGeom = new THREE.BoxGeometry(3, 0.3, 2);
-    const chassisMat = new THREE.MeshPhongMaterial({ color: 0x1a1a1a, shininess: 80 });
-    const chassis = new THREE.Mesh(chassisGeom, chassisMat);
+    var chassisGeom = new THREE.BoxGeometry(3, 0.3, 2);
+    var chassisMat = new THREE.MeshPhongMaterial({ color: 0x1a1a1a, shininess: 80 });
+    var chassis = new THREE.Mesh(chassisGeom, chassisMat);
     robot.add(chassis);
 
-    const topGeom = new THREE.BoxGeometry(2, 0.8, 1.5);
-    const topMat = new THREE.MeshPhongMaterial({ color: 0xf59e0b, emissive: 0xf59e0b, emissiveIntensity: 0.3 });
-    const top = new THREE.Mesh(topGeom, topMat);
+    var topGeom = new THREE.BoxGeometry(2, 0.8, 1.5);
+    var topMat = new THREE.MeshPhongMaterial({ color: 0xf59e0b, emissive: 0xf59e0b, emissiveIntensity: 0.3 });
+    var top = new THREE.Mesh(topGeom, topMat);
     top.position.y = 0.55;
     robot.add(top);
 
-    const ledGeom = new THREE.SphereGeometry(0.15, 16, 16);
-    const ledMat = new THREE.MeshPhongMaterial({ color: 0x00ffff, emissive: 0x00ffff, emissiveIntensity: 1 });
-    const led1 = new THREE.Mesh(ledGeom, ledMat);
+    var ledGeom = new THREE.SphereGeometry(0.15, 16, 16);
+    var ledMat = new THREE.MeshPhongMaterial({ color: 0x00ffff, emissive: 0x00ffff, emissiveIntensity: 1 });
+    var led1 = new THREE.Mesh(ledGeom, ledMat);
     led1.position.set(0.5, 0.6, 0.85);
     robot.add(led1);
-    const led2 = new THREE.Mesh(ledGeom, ledMat);
+    var led2 = new THREE.Mesh(ledGeom, ledMat);
     led2.position.set(-0.5, 0.6, 0.85);
     robot.add(led2);
 
-    const wheelGeom = new THREE.CylinderGeometry(0.4, 0.4, 0.2, 32);
-    const wheelMat = new THREE.MeshPhongMaterial({ color: 0x333333 });
+    var wheelGeom = new THREE.CylinderGeometry(0.4, 0.4, 0.2, 32);
+    var wheelMat = new THREE.MeshPhongMaterial({ color: 0x333333 });
 
-    const wheel1 = new THREE.Mesh(wheelGeom, wheelMat);
+    var wheel1 = new THREE.Mesh(wheelGeom, wheelMat);
     wheel1.rotation.z = Math.PI / 2;
     wheel1.position.set(1.3, -0.2, 0.7);
     robot.add(wheel1);
 
-    const wheel2 = new THREE.Mesh(wheelGeom, wheelMat);
+    var wheel2 = new THREE.Mesh(wheelGeom, wheelMat);
     wheel2.rotation.z = Math.PI / 2;
     wheel2.position.set(-1.3, -0.2, 0.7);
     robot.add(wheel2);
 
-    const wheel3 = new THREE.Mesh(wheelGeom, wheelMat);
+    var wheel3 = new THREE.Mesh(wheelGeom, wheelMat);
     wheel3.rotation.z = Math.PI / 2;
     wheel3.position.set(1.3, -0.2, -0.7);
     robot.add(wheel3);
 
-    const wheel4 = new THREE.Mesh(wheelGeom, wheelMat);
+    var wheel4 = new THREE.Mesh(wheelGeom, wheelMat);
     wheel4.rotation.z = Math.PI / 2;
     wheel4.position.set(-1.3, -0.2, -0.7);
     robot.add(wheel4);
 
-    const sensorGeom = new THREE.BoxGeometry(0.8, 0.4, 0.3);
-    const sensorMat = new THREE.MeshPhongMaterial({ color: 0x555555 });
-    const sensor = new THREE.Mesh(sensorGeom, sensorMat);
+    var sensorGeom = new THREE.BoxGeometry(0.8, 0.4, 0.3);
+    var sensorMat = new THREE.MeshPhongMaterial({ color: 0x555555 });
+    var sensor = new THREE.Mesh(sensorGeom, sensorMat);
     sensor.position.set(0, 0.2, 1.15);
     robot.add(sensor);
 
-    const holeGeom = new THREE.CylinderGeometry(0.12, 0.12, 0.35, 16);
-    const holeMat = new THREE.MeshPhongMaterial({ color: 0x000000, emissive: 0xf59e0b, emissiveIntensity: 0.2 });
-    const hole1 = new THREE.Mesh(holeGeom, holeMat);
+    var holeGeom = new THREE.CylinderGeometry(0.12, 0.12, 0.35, 16);
+    var holeMat = new THREE.MeshPhongMaterial({ color: 0x000000, emissive: 0xf59e0b, emissiveIntensity: 0.2 });
+    var hole1 = new THREE.Mesh(holeGeom, holeMat);
     hole1.rotation.x = Math.PI / 2;
     hole1.position.set(-0.25, 0.2, 1.3);
     robot.add(hole1);
-    const hole2 = new THREE.Mesh(holeGeom, holeMat);
+    var hole2 = new THREE.Mesh(holeGeom, holeMat);
     hole2.rotation.x = Math.PI / 2;
     hole2.position.set(0.25, 0.2, 1.3);
     robot.add(hole2);
 
-    const detailGeom = new THREE.BoxGeometry(0.3, 0.1, 0.3);
-    const detailMat = new THREE.MeshPhongMaterial({ color: 0xfbbf24, emissive: 0xfbbf24, emissiveIntensity: 0.4 });
-    const detail1 = new THREE.Mesh(detailGeom, detailMat);
+    var detailGeom = new THREE.BoxGeometry(0.3, 0.1, 0.3);
+    var detailMat = new THREE.MeshPhongMaterial({ color: 0xfbbf24, emissive: 0xfbbf24, emissiveIntensity: 0.4 });
+    var detail1 = new THREE.Mesh(detailGeom, detailMat);
     detail1.position.set(0.8, 0.2, -0.9);
     robot.add(detail1);
-    const detail2 = new THREE.Mesh(detailGeom, detailMat);
+    var detail2 = new THREE.Mesh(detailGeom, detailMat);
     detail2.position.set(-0.8, 0.2, -0.9);
     robot.add(detail2);
 
@@ -249,8 +234,8 @@
     camera.position.z = 8;
     camera.position.y = 3;
 
-    let mouseX = 0, mouseY = 0;
-    document.addEventListener('mousemove', (e) => {
+    var mouseX = 0, mouseY = 0;
+    document.addEventListener('mousemove', function(e) {
       mouseX = (e.clientX / window.innerWidth) * 2 - 1;
       mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
     });
@@ -269,7 +254,7 @@
     }
     animate();
 
-    window.addEventListener('resize', () => {
+    window.addEventListener('resize', function() {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
