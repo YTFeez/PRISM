@@ -1,243 +1,188 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Robot mBot - Concours Paul Cronut 2026</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hidden}
-.hero{height:100vh;position:relative;display:flex;align-items:center;justify-content:center}
-#canvas3d{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1}
-.hero-content{position:relative;z-index:2;text-align:center;max-width:800px;padding:20px}
-h1{font-size:clamp(3rem,10vw,6rem);font-weight:900;letter-spacing:-0.02em;margin-bottom:20px;background:linear-gradient(120deg,#ff6b35,#f7931e,#ff6b35);background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:glow 3s ease infinite}
-@keyframes glow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-.subtitle{font-size:1.5rem;color:#aaa;margin-bottom:10px;font-weight:300}
-.year{font-size:2rem;color:#ff6b35;font-weight:700;letter-spacing:0.1em}
-.scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:2}
-.scroll-line{width:2px;height:60px;background:linear-gradient(to bottom,#ff6b35,transparent);animation:scroll 2s ease infinite}
-@keyframes scroll{0%,100%{opacity:0.3;transform:scaleY(0.5)}50%{opacity:1;transform:scaleY(1)}}
-.section{padding:100px 20px;position:relative}
-.section:nth-child(even){background:#111}
-.container{max-width:1200px;margin:0 auto}
-.robot-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;margin-top:60px}
-.info-card{background:rgba(255,107,53,0.1);border:1px solid rgba(255,107,53,0.3);border-radius:20px;padding:40px;transition:all 0.3s;cursor:pointer}
-.info-card:hover{transform:translateY(-10px);box-shadow:0 20px 60px rgba(255,107,53,0.3);border-color:#ff6b35}
-.info-card h3{font-size:1.8rem;margin-bottom:15px;color:#ff6b35}
-.info-card p{color:#ccc;line-height:1.6;font-size:1.1rem}
-.specs{background:#000;padding:80px 20px}
-.spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:40px}
-.spec-item{background:linear-gradient(135deg,#1a1a1a,#0d0d0d);padding:30px;border-radius:15px;border-left:4px solid #ff6b35;transition:transform 0.3s}
-.spec-item:hover{transform:scale(1.05)}
-.spec-label{color:#888;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px}
-.spec-value{font-size:1.5rem;font-weight:700;color:#ff6b35}
-.footer{padding:60px 20px;text-align:center;background:#050505;border-top:1px solid rgba(255,107,53,0.2)}
-.footer-text{color:#666;font-size:1rem}
-.accent{color:#ff6b35;font-weight:600}
-@media(max-width:768px){
-h1{font-size:2.5rem}
-.subtitle{font-size:1.2rem}
-.robot-info{grid-template-columns:1fr}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mBot — Robot Autonome | Concours Paul Cronut 2026</title>
+  <meta name="description" content="Présentation de notre robot mBot pour le concours Robot Paul Cronut Lisieux 2026" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  
+  <header class="header">
+    <nav class="nav">
+      <a href="#accueil" class="logo">mBot</a>
+      <ul class="nav-links">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#robot">Le Robot</a></li>
+        <li><a href="#specs">Spécifications</a></li>
+        <li><a href="#concours">Concours</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
 
-<section class="hero">
-<canvas id="canvas3d"></canvas>
-<div class="hero-content">
-<p class="subtitle">Concours Robot Paul Cronut</p>
-<h1>mBot</h1>
-<p class="year">2026</p>
-</div>
-<div class="scroll-indicator">
-<div class="scroll-line"></div>
-</div>
-</section>
+  <main>
+    <section id="accueil" class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
+      
+      <div id="canvas3d"></div>
+      
+      <div class="hero-content">
+        <p class="hero-label">Concours Robot Paul Cronut</p>
+        <h1 class="hero-title">
+          <span class="line">Robot.</span>
+          <span class="line">Autonome.</span>
+          <span class="line accent">mBot.</span>
+        </h1>
+        <p class="hero-desc">
+          Notre solution robotique pour le concours Paul Cronut Lisieux 2026
+        </p>
+        <div class="hero-cta">
+          <a href="#robot" class="btn btn-primary">Découvrir</a>
+          <a href="#specs" class="btn btn-ghost">Caractéristiques</a>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
 
-<section class="section">
-<div class="container">
-<div class="robot-info">
-<div class="info-card">
-<h3>Capteurs</h3>
-<p>Ultrason pour détection obstacles, suiveur de ligne infrarouge, capteur luminosité intégré</p>
-</div>
-<div class="info-card">
-<h3>Mobilité</h3>
-<p>Moteurs DC encodeurs, roues omnidirectionnelles, vitesse ajustable jusqu'à 2m/s</p>
-</div>
-<div class="info-card">
-<h3>Intelligence</h3>
-<p>Programmable Scratch/Arduino, Bluetooth/WiFi, batterie lithium rechargeable</p>
-</div>
-</div>
-</div>
-</section>
+    <section id="robot" class="section about">
+      <div class="container about-container">
+        <h2 class="section-title reveal">Le Robot</h2>
+        <p class="section-subtitle reveal">Technologie et performance</p>
+        <div class="about-content reveal">
+          <div class="about-text">
+            <p class="about-intro">
+              Le <strong>mBot</strong> est notre robot développé pour participer au <strong>concours Paul Cronut 2026</strong> à Lisieux.
+            </p>
+            <p>
+              Équipé de capteurs ultrason et infrarouge, il peut naviguer de manière autonome, éviter les obstacles et suivre des lignes. Sa programmation modulaire permet une adaptation rapide aux défis du concours.
+            </p>
+            <p>
+              Avec ses moteurs encodeurs et sa batterie lithium haute capacité, le mBot combine mobilité, précision et endurance pour relever tous les défis robotiques.
+            </p>
+          </div>
+          <div class="about-badge">
+            <span class="about-age">2026</span>
+            <span class="about-age-label">année</span>
+            <span class="about-role">Concours Paul Cronut</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section class="specs">
-<div class="container">
-<div class="spec-grid">
-<div class="spec-item">
-<div class="spec-label">Dimensions</div>
-<div class="spec-value">17 x 13 x 9 cm</div>
-</div>
-<div class="spec-item">
-<div class="spec-label">Poids</div>
-<div class="spec-value">1.2 kg</div>
-</div>
-<div class="spec-item">
-<div class="spec-label">Autonomie</div>
-<div class="spec-value">90 min</div>
-</div>
-<div class="spec-item">
-<div class="spec-label">Portée Bluetooth</div>
-<div class="spec-value">10 mètres</div>
-</div>
-<div class="spec-item">
-<div class="spec-label">Processeur</div>
-<div class="spec-value">ATmega328P</div>
-</div>
-<div class="spec-item">
-<div class="spec-label">Voltage</div>
-<div class="spec-value">3.7V Li-ion</div>
-</div>
-</div>
-</div>
-</section>
+    <section id="specs" class="section projects">
+      <div class="container projects-container">
+        <header class="projects-header">
+          <h2 class="section-title reveal">Spécifications</h2>
+          <p class="section-subtitle reveal">Caractéristiques techniques</p>
+        </header>
+        <div class="stats-row reveal">
+          <div class="stat">
+            <span class="stat-number" data-count="90">0</span>
+            <span class="stat-label">Minutes</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-count="10">0</span>
+            <span class="stat-label">Capteurs</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-count="2">0</span>
+            <span class="stat-label">Moteurs</span>
+          </div>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card reveal" data-tilt>
+            <div class="project-card-inner">
+              <div class="project-image">
+                <span class="project-placeholder">01</span>
+              </div>
+              <div class="project-info">
+                <h3>Capteurs</h3>
+                <p>Ultrason, infrarouge, luminosité pour navigation autonome</p>
+                <span class="project-tag">Détection</span>
+              </div>
+            </div>
+          </article>
+          <article class="project-card reveal" data-tilt>
+            <div class="project-card-inner">
+              <div class="project-image">
+                <span class="project-placeholder">02</span>
+              </div>
+              <div class="project-info">
+                <h3>Moteurs</h3>
+                <p>Encodeurs haute précision, contrôle vitesse variable</p>
+                <span class="project-tag">Mobilité</span>
+              </div>
+            </div>
+          </article>
+          <article class="project-card reveal" data-tilt>
+            <div class="project-card-inner">
+              <div class="project-image">
+                <span class="project-placeholder">03</span>
+              </div>
+              <div class="project-info">
+                <h3>Connectivité</h3>
+                <p>Bluetooth, programmation Scratch/Arduino/Python</p>
+                <span class="project-tag">Software</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<footer class="footer">
-<p class="footer-text">Concours Robot <span class="accent">Paul Cronut</span> Lisieux 2026</p>
-</footer>
+    <section id="concours" class="section skills">
+      <div class="container">
+        <h2 class="section-title reveal">Capacités</h2>
+        <p class="section-subtitle reveal">Performance du robot</p>
+        <div class="skills-list">
+          <div class="skill-item reveal">
+            <span class="skill-name">Navigation Autonome</span>
+            <div class="skill-bar"><div class="skill-fill" style="--level: 95%"></div></div>
+          </div>
+          <div class="skill-item reveal">
+            <span class="skill-name">Détection Obstacles</span>
+            <div class="skill-bar"><div class="skill-fill" style="--level: 90%"></div></div>
+          </div>
+          <div class="skill-item reveal">
+            <span class="skill-name">Suivi de Ligne</span>
+            <div class="skill-bar"><div class="skill-fill" style="--level: 88%"></div></div>
+          </div>
+          <div class="skill-item reveal">
+            <span class="skill-name">Précision Moteurs</span>
+            <div class="skill-bar"><div class="skill-fill" style="--level: 92%"></div></div>
+          </div>
+          <div class="skill-item reveal">
+            <span class="skill-name">Autonomie Batterie</span>
+            <div class="skill-bar"><div class="skill-fill" style="--level: 85%"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-const canvas=document.getElementById('canvas3d');
-const scene=new THREE.Scene();
-const camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
-const renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true,antialias:true});
-renderer.setSize(window.innerWidth,window.innerHeight);
-renderer.setClearColor(0x000000,0);
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 mBot. Concours Robot <span class="footer-accent">Paul Cronut</span> Lisieux.</p>
+    </div>
+  </footer>
 
-// Lumières
-const ambientLight=new THREE.AmbientLight(0xffffff,0.6);
-scene.add(ambientLight);
-const pointLight=new THREE.PointLight(0xff6b35,1.5,100);
-pointLight.position.set(5,10,5);
-scene.add(pointLight);
-const pointLight2=new THREE.PointLight(0xf7931e,1,100);
-pointLight2.position.set(-5,5,-5);
-scene.add(pointLight2);
-
-// Construction du robot mBot
-const robot=new THREE.Group();
-
-// Châssis principal
-const chassisGeom=new THREE.BoxGeometry(3,0.3,2);
-const chassisMat=new THREE.MeshPhongMaterial({color:0x1a1a1a,shininess:80});
-const chassis=new THREE.Mesh(chassisGeom,chassisMat);
-robot.add(chassis);
-
-// Partie supérieure (cerveau)
-const topGeom=new THREE.BoxGeometry(2,0.8,1.5);
-const topMat=new THREE.MeshPhongMaterial({color:0xff6b35,emissive:0xff6b35,emissiveIntensity:0.3});
-const top=new THREE.Mesh(topGeom,topMat);
-top.position.y=0.55;
-robot.add(top);
-
-// LED avant (yeux)
-const ledGeom=new THREE.SphereGeometry(0.15,16,16);
-const ledMat=new THREE.MeshPhongMaterial({color:0x00ffff,emissive:0x00ffff,emissiveIntensity:1});
-const led1=new THREE.Mesh(ledGeom,ledMat);
-led1.position.set(0.5,0.6,0.85);
-robot.add(led1);
-const led2=new THREE.Mesh(ledGeom,ledMat);
-led2.position.set(-0.5,0.6,0.85);
-robot.add(led2);
-
-// Roues
-const wheelGeom=new THREE.CylinderGeometry(0.4,0.4,0.2,32);
-const wheelMat=new THREE.MeshPhongMaterial({color:0x333333});
-
-const wheel1=new THREE.Mesh(wheelGeom,wheelMat);
-wheel1.rotation.z=Math.PI/2;
-wheel1.position.set(1.3,-0.2,0.7);
-robot.add(wheel1);
-
-const wheel2=new THREE.Mesh(wheelGeom,wheelMat);
-wheel2.rotation.z=Math.PI/2;
-wheel2.position.set(-1.3,-0.2,0.7);
-robot.add(wheel2);
-
-const wheel3=new THREE.Mesh(wheelGeom,wheelMat);
-wheel3.rotation.z=Math.PI/2;
-wheel3.position.set(1.3,-0.2,-0.7);
-robot.add(wheel3);
-
-const wheel4=new THREE.Mesh(wheelGeom,wheelMat);
-wheel4.rotation.z=Math.PI/2;
-wheel4.position.set(-1.3,-0.2,-0.7);
-robot.add(wheel4);
-
-// Capteur ultrason (avant)
-const sensorGeom=new THREE.BoxGeometry(0.8,0.4,0.3);
-const sensorMat=new THREE.MeshPhongMaterial({color:0x555555});
-const sensor=new THREE.Mesh(sensorGeom,sensorMat);
-sensor.position.set(0,0.2,1.15);
-robot.add(sensor);
-
-// Trous capteur (cercles)
-const holeGeom=new THREE.CylinderGeometry(0.12,0.12,0.35,16);
-const holeMat=new THREE.MeshPhongMaterial({color:0x000000,emissive:0xff6b35,emissiveIntensity:0.2});
-const hole1=new THREE.Mesh(holeGeom,holeMat);
-hole1.rotation.x=Math.PI/2;
-hole1.position.set(-0.25,0.2,1.3);
-robot.add(hole1);
-const hole2=new THREE.Mesh(holeGeom,holeMat);
-hole2.rotation.x=Math.PI/2;
-hole2.position.set(0.25,0.2,1.3);
-robot.add(hole2);
-
-// Détails décoratifs
-const detailGeom=new THREE.BoxGeometry(0.3,0.1,0.3);
-const detailMat=new THREE.MeshPhongMaterial({color:0xf7931e,emissive:0xf7931e,emissiveIntensity:0.4});
-const detail1=new THREE.Mesh(detailGeom,detailMat);
-detail1.position.set(0.8,0.2,-0.9);
-robot.add(detail1);
-const detail2=new THREE.Mesh(detailGeom,detailMat);
-detail2.position.set(-0.8,0.2,-0.9);
-robot.add(detail2);
-
-scene.add(robot);
-camera.position.z=8;
-camera.position.y=3;
-
-let mouseX=0,mouseY=0;
-document.addEventListener('mousemove',(e)=>{
-mouseX=(e.clientX/window.innerWidth)*2-1;
-mouseY=-(e.clientY/window.innerHeight)*2+1;
-});
-
-function animate(){
-requestAnimationFrame(animate);
-robot.rotation.y+=0.005;
-robot.rotation.y+=mouseX*0.01;
-robot.rotation.x=mouseY*0.3;
-robot.position.y=Math.sin(Date.now()*0.001)*0.2;
-
-// Animation LED
-led1.material.emissiveIntensity=0.5+Math.sin(Date.now()*0.003)*0.5;
-led2.material.emissiveIntensity=0.5+Math.cos(Date.now()*0.003)*0.5;
-
-renderer.render(scene,camera);
-}
-animate();
-
-window.addEventListener('resize',()=>{
-camera.aspect=window.innerWidth/window.innerHeight;
-camera.updateProjectionMatrix();
-renderer.setSize(window.innerWidth,window.innerHeight);
-});
-</script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
