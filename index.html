@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>mBot — Concours Paul Cronut 2026</title>
+<title>KASHOW — Concours Paul Cornut 2026</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;900&family=Share+Tech+Mono&display=swap');
 
@@ -11,13 +11,14 @@
   --bg: #080a0c;
   --bg2: #0d1117;
   --bg3: #111820;
-  --green: #00ff88;
-  --green-dim: rgba(0,255,136,0.1);
-  --green-mid: rgba(0,255,136,0.35);
+  --accent: #e41f26;
+  --accent-dim: rgba(228,31,38,0.12);
+  --accent-mid: rgba(228,31,38,0.4);
+  --accent-yellow: #ffcc00;
   --text: #c8d8e8;
   --text-dim: #5a7080;
   --text-bright: #e8f4ff;
-  --border: rgba(0,255,136,0.18);
+  --border: rgba(228,31,38,0.22);
   --border-dim: rgba(255,255,255,0.06);
   --fh: 'Barlow Condensed', 'Arial Narrow', sans-serif;
   --fm: 'Share Tech Mono', 'Courier New', monospace;
@@ -36,7 +37,6 @@ body {
   cursor: crosshair;
 }
 
-/* NOISE */
 body::before {
   content:'';
   position:fixed;inset:0;z-index:9999;pointer-events:none;
@@ -45,19 +45,16 @@ body::before {
   background-size:180px;
 }
 
-/* SCANLINES */
 body::after {
   content:'';
   position:fixed;inset:0;z-index:9998;pointer-events:none;
   background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.04) 2px,rgba(0,0,0,0.04) 4px);
 }
 
-/* SCROLL BAR */
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--green);border-radius:2px}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px}
 
-/* ─── HEADER ─── */
 #hdr {
   position:fixed;top:0;left:0;right:0;z-index:1000;
   border-bottom:1px solid transparent;
@@ -73,21 +70,20 @@ body::after {
 }
 
 .hdr-left{display:flex;align-items:center;gap:.7rem}
-.hdr-tag{font-family:var(--fm);font-size:.6rem;color:var(--green);opacity:.55;letter-spacing:.1em}
+.hdr-tag{font-family:var(--fm);font-size:.6rem;color:var(--accent-yellow);opacity:.65;letter-spacing:.1em}
 .hdr-logo{font-family:var(--fh);font-size:1.5rem;font-weight:900;letter-spacing:.12em;color:var(--text-bright);transition:color .2s}
-.hdr-logo:hover{color:var(--green)}
+.hdr-logo:hover{color:var(--accent)}
 
 .hdr-nav{display:flex;gap:2.8rem}
 .hdr-nav a{font-family:var(--fh);font-size:.78rem;font-weight:700;letter-spacing:.18em;color:var(--text-dim);transition:color .2s;position:relative}
-.hdr-nav a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--green);transition:width .25s}
-.hdr-nav a:hover{color:var(--green)}
+.hdr-nav a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--accent);transition:width .25s}
+.hdr-nav a:hover{color:var(--accent)}
 .hdr-nav a:hover::after{width:100%}
 
-.hdr-right{display:flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.6rem;color:var(--green)}
-.dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 7px var(--green);animation:blink 2s ease-in-out infinite}
+.hdr-right{display:flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.6rem;color:var(--accent)}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 7px var(--accent);animation:blink 2s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
 
-/* ─── HERO ─── */
 #hero {
   position:relative;min-height:100vh;
   display:flex;align-items:center;justify-content:center;
@@ -102,8 +98,8 @@ body::after {
 .hero-grid {
   position:absolute;inset:0;z-index:0;
   background-image:
-    linear-gradient(rgba(0,255,136,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(0,255,136,.04) 1px,transparent 1px);
+    linear-gradient(rgba(228,31,38,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(228,31,38,.05) 1px,transparent 1px);
   background-size:65px 65px;
   mask-image:radial-gradient(ellipse 75% 75% at 50% 50%,black 10%,transparent 75%);
   -webkit-mask-image:radial-gradient(ellipse 75% 75% at 50% 50%,black 10%,transparent 75%);
@@ -111,7 +107,7 @@ body::after {
 
 .hero-radial {
   position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(ellipse 60% 60% at 50% 40%, rgba(0,255,136,.06) 0%, transparent 70%);
+  background:radial-gradient(ellipse 60% 60% at 50% 40%, rgba(228,31,38,.08) 0%, transparent 70%);
 }
 
 .hero-content {
@@ -122,7 +118,7 @@ body::after {
 
 .hero-eyebrow {
   display:flex;align-items:center;justify-content:center;gap:.5rem;
-  font-family:var(--fm);font-size:.68rem;color:var(--green);
+  font-family:var(--fm);font-size:.68rem;color:var(--accent-yellow);
   margin-bottom:1.6rem;letter-spacing:.12em;
   opacity:0;animation:fadeUp .6s ease .3s forwards;
 }
@@ -140,11 +136,11 @@ body::after {
 .h1-big {
   display:block;font-size:clamp(4.5rem,14vw,11rem);color:var(--text-bright);
   opacity:0;animation:fadeUp .7s ease .6s forwards;
-  text-shadow:0 0 80px rgba(0,255,136,.07);
+  text-shadow:0 0 80px rgba(228,31,38,.12);
 }
 .h1-acc {
-  display:block;font-size:clamp(3rem,9.5vw,7rem);color:var(--green);
-  text-shadow:0 0 40px rgba(0,255,136,.45),0 0 80px rgba(0,255,136,.15);
+  display:block;font-size:clamp(3rem,9.5vw,7rem);color:var(--accent);
+  text-shadow:0 0 40px rgba(228,31,38,.5),0 0 80px rgba(255,204,0,.15);
   opacity:0;animation:fadeUp .7s ease .75s forwards;
 }
 
@@ -162,19 +158,19 @@ body::after {
 
 .btn-p {
   font-family:var(--fh);font-size:.82rem;font-weight:700;letter-spacing:.18em;
-  padding:.85rem 2.2rem;background:var(--green);color:#060a0d;
+  padding:.85rem 2.2rem;background:var(--accent);color:#fff;
   border-radius:3px;cursor:crosshair;
   transition:box-shadow .25s,transform .2s;display:inline-block;
 }
-.btn-p:hover{box-shadow:0 0 28px rgba(0,255,136,.55),0 0 60px rgba(0,255,136,.18);transform:translateY(-2px)}
+.btn-p:hover{box-shadow:0 0 28px rgba(228,31,38,.55),0 0 60px rgba(255,204,0,.2);transform:translateY(-2px)}
 
 .btn-g {
   font-family:var(--fh);font-size:.82rem;font-weight:700;letter-spacing:.18em;
-  padding:.85rem 2.2rem;background:transparent;color:var(--green);
-  border:1px solid var(--green-mid);border-radius:3px;cursor:crosshair;
+  padding:.85rem 2.2rem;background:transparent;color:var(--accent-yellow);
+  border:1px solid var(--accent-mid);border-radius:3px;cursor:crosshair;
   transition:background .2s,box-shadow .25s,transform .2s;display:inline-block;
 }
-.btn-g:hover{background:var(--green-dim);box-shadow:0 0 18px rgba(0,255,136,.2);transform:translateY(-2px)}
+.btn-g:hover{background:var(--accent-dim);box-shadow:0 0 18px rgba(228,31,38,.25);transform:translateY(-2px)}
 
 .hero-hud {
   position:absolute;bottom:3.5rem;left:50%;transform:translateX(-50%);
@@ -185,7 +181,7 @@ body::after {
   white-space:nowrap;
 }
 .hud-i{text-align:center}
-.hud-v{display:block;font-family:var(--fh);font-size:1.7rem;font-weight:900;color:var(--green);line-height:1}
+.hud-v{display:block;font-family:var(--fh);font-size:1.7rem;font-weight:900;color:var(--accent);line-height:1}
 .hud-v small{font-size:.55em;font-weight:400}
 .hud-l{font-family:var(--fm);font-size:.55rem;color:var(--text-dim);letter-spacing:.12em;margin-top:.2rem;display:block}
 .hud-sep{width:1px;height:28px;background:var(--border)}
@@ -196,18 +192,17 @@ body::after {
   font-family:var(--fm);font-size:.52rem;color:var(--text-dim);letter-spacing:.2em;
   opacity:0;animation:fadeIn 1s ease 1.7s forwards;
 }
-.sc-line{width:1px;height:46px;background:linear-gradient(to bottom,var(--green),transparent);animation:scDrop 2s ease-in-out infinite}
+.sc-line{width:1px;height:46px;background:linear-gradient(to bottom,var(--accent),transparent);animation:scDrop 2s ease-in-out infinite}
 @keyframes scDrop{0%,100%{transform:scaleY(.6) translateY(-4px);opacity:.45}50%{transform:scaleY(1) translateY(0);opacity:1}}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{to{opacity:1}}
 
-/* ─── SECTIONS ─── */
 .swrap{max-width:1200px;margin:0 auto;padding:7rem 2.5rem}
 
 .slabel{
   font-family:var(--fm);font-size:.62rem;letter-spacing:.22em;
-  color:var(--green);opacity:.65;margin-bottom:2.5rem;
+  color:var(--accent);opacity:.75;margin-bottom:2.5rem;
 }
 .slabel span{color:var(--text-dim)}
 
@@ -215,9 +210,8 @@ body::after {
   font-family:var(--fh);font-size:clamp(2.8rem,5.5vw,5rem);
   font-weight:900;line-height:.92;color:var(--text-bright);letter-spacing:-.02em;
 }
-.sh2 em{font-style:normal;color:var(--green);text-shadow:0 0 28px rgba(0,255,136,.28)}
+.sh2 em{font-style:normal;color:var(--accent);text-shadow:0 0 28px rgba(228,31,38,.35)}
 
-/* ─── ABOUT ─── */
 #about{background:var(--bg);border-top:1px solid var(--border-dim)}
 
 .about-grid{
@@ -230,24 +224,23 @@ body::after {
   background:var(--bg2);border:1px solid var(--border);border-radius:3px;
   padding:1.6rem 2rem;text-align:center;width:fit-content;position:relative;overflow:hidden;
 }
-.badge::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--green-dim),transparent);pointer-events:none}
+.badge::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--accent-dim),transparent);pointer-events:none}
 .badge-top{font-family:var(--fm);font-size:.55rem;letter-spacing:.25em;color:var(--text-dim)}
-.badge-y{font-family:var(--fh);font-size:4.2rem;font-weight:900;color:var(--green);line-height:1;text-shadow:0 0 22px rgba(0,255,136,.4)}
+.badge-y{font-family:var(--fh);font-size:4.2rem;font-weight:900;color:var(--accent);line-height:1;text-shadow:0 0 22px rgba(228,31,38,.45)}
 .badge-bot{font-family:var(--fm);font-size:.55rem;letter-spacing:.12em;color:var(--text-dim)}
 
 .about-right{display:flex;flex-direction:column;gap:1.6rem;padding-top:.5rem}
 .about-lead{font-family:var(--fm);font-size:.95rem;line-height:1.75;color:var(--text-bright)}
 .about-right p{font-size:.82rem;line-height:1.85;color:var(--text-dim)}
-.about-right strong{color:var(--green)}
+.about-right strong{color:var(--accent-yellow)}
 
 .tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.3rem}
 .tags span{
   font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;
   padding:.3rem .75rem;border:1px solid var(--border);border-radius:2px;
-  color:var(--green);background:var(--green-dim);
+  color:var(--accent);background:var(--accent-dim);
 }
 
-/* ─── SPECS ─── */
 #specs{background:var(--bg2);border-top:1px solid var(--border-dim)}
 
 .specs-grid{
@@ -265,18 +258,17 @@ body::after {
 }
 .sc::after{
   content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
-  background:var(--green);transform:scaleX(0);transform-origin:left;
+  background:var(--accent);transform:scaleX(0);transform-origin:left;
   transition:transform .3s ease;
 }
-.sc:hover{border-color:rgba(0,255,136,.22);transform:translateY(-3px)}
+.sc:hover{border-color:rgba(228,31,38,.28);transform:translateY(-3px)}
 .sc:hover::after{transform:scaleX(1)}
 
-.sc-ico{font-size:1.3rem;color:var(--green);margin-bottom:.9rem;display:block}
+.sc-ico{font-size:1.3rem;color:var(--accent);margin-bottom:.9rem;display:block}
 .sc h3{font-family:var(--fh);font-size:1.15rem;font-weight:700;letter-spacing:.06em;color:var(--text-bright);margin-bottom:.55rem}
 .sc p{font-size:.76rem;line-height:1.72;color:var(--text-dim)}
-.sc-foot{font-family:var(--fm);font-size:.52rem;letter-spacing:.22em;color:var(--green);opacity:.45;margin-top:1.1rem}
+.sc-foot{font-family:var(--fm);font-size:.52rem;letter-spacing:.22em;color:var(--accent);opacity:.5;margin-top:1.1rem}
 
-/* ─── PERF ─── */
 #perf{background:var(--bg);border-top:1px solid var(--border-dim)}
 
 .perf-list{display:flex;flex-direction:column;gap:1.6rem;margin-top:3rem}
@@ -297,12 +289,12 @@ body::after {
 .pt{height:5px;background:var(--bg3);border-radius:2px;overflow:hidden}
 .pf{
   height:100%;width:0;
-  background:linear-gradient(90deg,var(--green),#00ffcc);
+  background:linear-gradient(90deg,var(--accent),var(--accent-yellow));
   border-radius:2px;
   transition:width 1.3s cubic-bezier(.4,0,.2,1);
-  box-shadow:0 0 12px rgba(0,255,136,.35);
+  box-shadow:0 0 12px rgba(228,31,38,.4);
 }
-.pp{font-family:var(--fm);font-size:.7rem;color:var(--green);text-align:right}
+.pp{font-family:var(--fm);font-size:.7rem;color:var(--accent);text-align:right}
 
 .stats-band{
   display:flex;gap:0;margin-top:4rem;
@@ -314,13 +306,12 @@ body::after {
   position:relative;overflow:hidden;transition:background .25s;
 }
 .sb:last-child{border-right:none}
-.sb::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,var(--green-dim),transparent);opacity:0;transition:opacity .3s}
+.sb::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,var(--accent-dim),transparent);opacity:0;transition:opacity .3s}
 .sb:hover::before{opacity:1}
-.sbn{display:block;font-family:var(--fh);font-size:3rem;font-weight:900;color:var(--green);line-height:1;text-shadow:0 0 22px rgba(0,255,136,.3)}
+.sbn{display:block;font-family:var(--fh);font-size:3rem;font-weight:900;color:var(--accent);line-height:1;text-shadow:0 0 22px rgba(228,31,38,.35)}
 .sbu{font-family:var(--fm);font-size:.65rem;color:var(--text-dim);display:block;margin-bottom:.3rem}
 .sbl{font-family:var(--fm);font-size:.58rem;letter-spacing:.14em;color:var(--text-dim);display:block}
 
-/* ─── MISSION ─── */
 #mission{background:var(--bg2);border-top:1px solid var(--border-dim)}
 
 .mission-grid{
@@ -333,14 +324,13 @@ body::after {
 
 .mc{
   background:var(--bg3);border:1px solid var(--border-dim);
-  border-left:2px solid var(--green);border-radius:3px;
+  border-left:2px solid var(--accent);border-radius:3px;
   padding:1.2rem 1.5rem;transition:background .2s,border-color .2s;
 }
-.mc:hover{background:rgba(0,255,136,.04);border-color:rgba(0,255,136,.15)}
-.mc-h{font-family:var(--fm);font-size:.58rem;letter-spacing:.2em;color:var(--green);margin-bottom:.5rem}
+.mc:hover{background:rgba(228,31,38,.06);border-color:rgba(228,31,38,.2)}
+.mc-h{font-family:var(--fm);font-size:.58rem;letter-spacing:.2em;color:var(--accent-yellow);margin-bottom:.5rem}
 .mc-b{font-size:.8rem;line-height:1.65;color:var(--text-dim)}
 
-/* ─── FOOTER ─── */
 #foot{
   background:var(--bg);
   border-top:1px solid var(--border-dim);
@@ -352,10 +342,9 @@ body::after {
 }
 .fl{font-family:var(--fh);font-size:1.1rem;font-weight:900;letter-spacing:.15em;color:var(--text-dim)}
 .fc{font-family:var(--fm);font-size:.68rem;color:var(--text-dim)}
-.fc strong{color:var(--green)}
-.fr{font-family:var(--fm);font-size:.58rem;color:var(--green);opacity:.45}
+.fc strong{color:var(--accent)}
+.fr{font-family:var(--fm);font-size:.58rem;color:var(--accent);opacity:.45}
 
-/* ─── RESPONSIVE ─── */
 @media(max-width:900px){
   .specs-grid{grid-template-columns:repeat(2,1fr)}
   .about-grid{grid-template-columns:1fr;gap:2.5rem}
@@ -379,8 +368,8 @@ body::after {
 <header id="hdr">
   <div class="hdr-inner">
     <div class="hdr-left">
-      <span class="hdr-tag">SYS//</span>
-      <a href="#hero" class="hdr-logo">mBOT</a>
+      <span class="hdr-tag">PIT//</span>
+      <a href="#hero" class="hdr-logo">KASHOW</a>
     </div>
     <nav class="hdr-nav">
       <a href="#about">ROBOT</a>
@@ -390,7 +379,7 @@ body::after {
     </nav>
     <div class="hdr-right">
       <span class="dot"></span>
-      <span>ONLINE</span>
+      <span>EN PISTE</span>
     </div>
   </div>
 </header>
@@ -409,9 +398,9 @@ body::after {
     <h1 class="hero-h1">
       <span class="h1-sm">ROBOT</span>
       <span class="h1-big">AUTONOME</span>
-      <span class="h1-acc">mBOT.</span>
+      <span class="h1-acc">KASHOW.</span>
     </h1>
-    <p class="hero-sub">Robot 100% Boris Vian. Navigation 100% autonome et la plus rapide.<br>Le seule vainqueur.</p>
+    <p class="hero-sub">Notre bolide de compétition, inspiré de l’esprit « Ka-Chow » de Flash McQueen dans <em>Cars</em> — navigation 100&nbsp;% autonome, réactive, taillée pour la piste.<br>Objectif&nbsp;: être le plus rapide, le plus propre… et le seul vainqueur.</p>
     <div class="hero-btns">
       <a href="#about" class="btn-p">DÉCOUVRIR LE ROBOT</a>
       <a href="#specs" class="btn-g">FICHE TECHNIQUE</a>
@@ -441,15 +430,15 @@ body::after {
         <div class="badge">
           <div class="badge-top">ANNÉE</div>
           <div class="badge-y">2026</div>
-          <div class="badge-bot">PAUL CRONUT</div>
+          <div class="badge-bot">PAUL CORNUT</div>
         </div>
       </div>
       <div class="about-right">
-        <p class="about-lead">Le <strong>mBot</strong> est notre robot développé pour le <strong>concours Paul Cronut 2026</strong> à Lisieux — une compétition robotique exigeant navigation autonome, détection d'obstacles et précision de trajectoire.</p>
-        <p>Équipé d'une combinaison de capteurs ultrasoniques, infrarouges et de luminosité, il perçoit son environnement en temps réel. Sa programmation modulaire permet une adaptation rapide aux différents défis imposés par le concours.</p>
-        <p>Moteurs encodeurs haute résolution, batterie lithium longue durée, firmware optimisé pour la réactivité — chaque composant est choisi pour la performance sur le terrain.</p>
+        <p class="about-lead"><strong>KASHOW</strong> est notre robot engagé pour le <strong>concours Paul Cornut 2026</strong> à Lisieux — une compétition robotique qui exige navigation autonome, détection d’obstacles et précision de trajectoire.</p>
+        <p>On a quitté la plateforme générique mBot pour un projet plus personnel&nbsp;: un châssis type «&nbsp;voiture de course&nbsp;», identité <strong>KASHOW</strong>, et une méca pensée pour les épreuves sur piste.</p>
+        <p>Capteurs ultrasoniques, infrarouges et luminosité pour lire le terrain en temps réel&nbsp;; programmation modulaire pour s’adapter vite aux consignes du jour. Moteurs avec encodeurs, batterie lithium, firmware orienté réactivité — chaque choix vise la perf sur le parcours.</p>
         <div class="tags">
-          <span>Arduino</span><span>Ultrason HC-SR04</span><span>IR Line Sensor</span><span>Encodeurs</span><span>LiPo 2000mAh</span>
+          <span>Arduino</span><span>Ultrason HC-SR04</span><span>IR ligne</span><span>Encodeurs</span><span>LiPo 2000mAh</span><span>Thème Cars</span>
         </div>
       </div>
     </div>
@@ -461,12 +450,12 @@ body::after {
     <div class="slabel"><span>02 /</span> SPÉCIFICATIONS</div>
     <h2 class="sh2">Fiche<br><em>technique.</em></h2>
     <div class="specs-grid">
-      <div class="sc"><span class="sc-num">01</span><span class="sc-ico">◈</span><h3>Capteurs</h3><p>Ultrason frontal, 2× IR sol, capteur de luminosité, gyroscope intégré pour correction de cap automatique.</p><div class="sc-foot">DÉTECTION</div></div>
-      <div class="sc"><span class="sc-num">02</span><span class="sc-ico">⚙</span><h3>Moteurs</h3><p>2 moteurs DC avec encodeurs 360 imp/tour. Contrôle PWM haute fréquence, précision &lt;0.5°.</p><div class="sc-foot">MOBILITÉ</div></div>
-      <div class="sc"><span class="sc-num">03</span><span class="sc-ico">⬡</span><h3>Connectivité</h3><p>Bluetooth 4.0 BLE, programmable en Scratch, Arduino C++ et MicroPython. Interface debug série.</p><div class="sc-foot">SOFTWARE</div></div>
-      <div class="sc"><span class="sc-num">04</span><span class="sc-ico">◉</span><h3>Alimentation</h3><p>Batterie LiPo 7.4V 2000mAh. Autonomie nominale 90 min en usage intensif. Charge rapide USB-C.</p><div class="sc-foot">ÉNERGIE</div></div>
-      <div class="sc"><span class="sc-num">05</span><span class="sc-ico">▣</span><h3>Châssis</h3><p>Structure aluminium anodisé, empattement 12cm. Roues caoutchouc antidérapant. Poids total 380g.</p><div class="sc-foot">STRUCTURE</div></div>
-      <div class="sc"><span class="sc-num">06</span><span class="sc-ico">◌</span><h3>Contrôleur</h3><p>Microcontrôleur ATmega328P 16MHz, 32KB Flash, 2KB SRAM. Fréquence de boucle principale 500Hz.</p><div class="sc-foot">COMPUTE</div></div>
+      <div class="sc"><span class="sc-num">01</span><span class="sc-ico">◈</span><h3>Capteurs</h3><p>Ultrason frontal, 2× IR sol, capteur de luminosité, gyroscope pour correction de cap.</p><div class="sc-foot">DÉTECTION</div></div>
+      <div class="sc"><span class="sc-num">02</span><span class="sc-ico">⚙</span><h3>Moteurs</h3><p>2 moteurs DC avec encodeurs (360 impulsions/tour). PWM haute fréquence, précision cible &lt; 0,5°.</p><div class="sc-foot">MOBILITÉ</div></div>
+      <div class="sc"><span class="sc-num">03</span><span class="sc-ico">⬡</span><h3>Connectivité</h3><p>Bluetooth 4.0 BLE, programmation Scratch, Arduino C++ ou MicroPython. Debug série.</p><div class="sc-foot">SOFTWARE</div></div>
+      <div class="sc"><span class="sc-num">04</span><span class="sc-ico">◉</span><h3>Alimentation</h3><p>Batterie LiPo 7,4&nbsp;V 2000&nbsp;mAh. Autonomie indicative 90&nbsp;min en usage soutenu. Recharge USB-C.</p><div class="sc-foot">ÉNERGIE</div></div>
+      <div class="sc"><span class="sc-num">05</span><span class="sc-ico">▣</span><h3>Châssis</h3><p>Structure aluminium anodisé, empattement 12&nbsp;cm. Roues caoutchouc. Masse totale ~380&nbsp;g.</p><div class="sc-foot">STRUCTURE</div></div>
+      <div class="sc"><span class="sc-num">06</span><span class="sc-ico">◌</span><h3>Contrôleur</h3><p>ATmega328P 16&nbsp;MHz, 32&nbsp;Ko Flash, 2&nbsp;Ko SRAM. Boucle principale cible 500&nbsp;Hz.</p><div class="sc-foot">COMPUTE</div></div>
     </div>
   </div>
 </section>
@@ -476,11 +465,11 @@ body::after {
     <div class="slabel"><span>03 /</span> PERFORMANCES</div>
     <h2 class="sh2">Capacités<br><em>mesurées.</em></h2>
     <div class="perf-list">
-      <div class="pr"><span class="pn">Navigation Autonome</span><div class="pt"><div class="pf" data-w="95%"></div></div><span class="pp">95%</span></div>
-      <div class="pr"><span class="pn">Détection Obstacles</span><div class="pt"><div class="pf" data-w="90%"></div></div><span class="pp">90%</span></div>
-      <div class="pr"><span class="pn">Suivi de Ligne</span><div class="pt"><div class="pf" data-w="88%"></div></div><span class="pp">88%</span></div>
-      <div class="pr"><span class="pn">Précision Moteurs</span><div class="pt"><div class="pf" data-w="92%"></div></div><span class="pp">92%</span></div>
-      <div class="pr"><span class="pn">Autonomie Batterie</span><div class="pt"><div class="pf" data-w="85%"></div></div><span class="pp">85%</span></div>
+      <div class="pr"><span class="pn">Navigation autonome</span><div class="pt"><div class="pf" data-w="95%"></div></div><span class="pp">95%</span></div>
+      <div class="pr"><span class="pn">Détection d’obstacles</span><div class="pt"><div class="pf" data-w="90%"></div></div><span class="pp">90%</span></div>
+      <div class="pr"><span class="pn">Suivi de ligne</span><div class="pt"><div class="pf" data-w="88%"></div></div><span class="pp">88%</span></div>
+      <div class="pr"><span class="pn">Précision moteurs</span><div class="pt"><div class="pf" data-w="92%"></div></div><span class="pp">92%</span></div>
+      <div class="pr"><span class="pn">Autonomie batterie</span><div class="pt"><div class="pf" data-w="85%"></div></div><span class="pp">85%</span></div>
     </div>
     <div class="stats-band">
       <div class="sb"><span class="sbn" data-to="90">0</span><span class="sbu">min</span><span class="sbl">Autonomie</span></div>
@@ -496,15 +485,15 @@ body::after {
     <div class="slabel"><span>04 /</span> MISSION</div>
     <div class="mission-grid">
       <div class="ml">
-        <h2 class="sh2">Concours<br><em>Paul Cronut.</em></h2>
-        <p>Le concours Paul Cronut de Lisieux est l'une des compétitions robotiques lycéennes les plus attendues de Normandie. Chaque équipe programme un robot qui doit accomplir des épreuves autonomes.</p>
-        <p>Notre équipe a conçu le mBot de A à Z — mécanique, électronique, firmware — avec pour objectif une fiabilité maximale sur chaque épreuve imposée par les organisateurs.</p>
+        <h2 class="sh2">Concours<br><em>Paul Cornut.</em></h2>
+        <p>Le concours Paul Cornut de Lisieux est l’une des compétitions robotiques lycéennes les plus attendues en Normandie. Chaque équipe fait rouler un robot qui doit réussir des épreuves en autonomie.</p>
+        <p>Nous avons conçu <strong>KASHOW</strong> de bout en bout — mécanique, électronique, code — pour viser la fiabilité sur chaque épreuve imposée par les organisateurs.</p>
         <a href="#about" class="btn-p" style="width:fit-content">VOIR LE ROBOT</a>
       </div>
       <div class="mr">
-        <div class="mc"><div class="mc-h">OBJECTIF PRINCIPAL</div><div class="mc-b">Terminer le parcours complet en moins de 120 secondes avec zéro collision détectée.</div></div>
+        <div class="mc"><div class="mc-h">OBJECTIF PRINCIPAL</div><div class="mc-b">Terminer le parcours complet en moins de 120&nbsp;s avec aucune collision détectée.</div></div>
         <div class="mc"><div class="mc-h">ÉPREUVE LIGNE</div><div class="mc-b">Suivi de ligne noire sur fond blanc avec virages serrés et intersections multiples.</div></div>
-        <div class="mc"><div class="mc-h">ÉPREUVE OBSTACLES</div><div class="mc-b">Détection et contournement d'obstacles mobiles placés aléatoirement sur le parcours.</div></div>
+        <div class="mc"><div class="mc-h">ÉPREUVE OBSTACLES</div><div class="mc-b">Détection et contournement d’obstacles placés sur le parcours.</div></div>
       </div>
     </div>
   </div>
@@ -512,9 +501,9 @@ body::after {
 
 <footer id="foot">
   <div class="fi">
-    <div class="fl">mBOT</div>
-    <div class="fc">© 2026 — Concours Robot <strong>Paul Cronut</strong> · Lisieux</div>
-    <div class="fr">SYS//ONLINE</div>
+    <div class="fl">KASHOW</div>
+    <div class="fc">© 2026 — Concours robot <strong>Paul Cornut</strong> · Lisieux</div>
+    <div class="fr">PIT//READY</div>
   </div>
 </footer>
 
@@ -570,113 +559,135 @@ if(!canvas || typeof THREE === 'undefined') return;
 
 var W = window.innerWidth, H = window.innerHeight;
 var scene = new THREE.Scene();
-var cam = new THREE.PerspectiveCamera(58, W/H, 0.1, 200);
-cam.position.set(0, 2.2, 9);
-cam.lookAt(0, 0, 0);
+var cam = new THREE.PerspectiveCamera(50, W/H, 0.1, 200);
+cam.position.set(0, 1.85, 8.2);
+cam.lookAt(0, 0.35, 0);
 
-var renderer = new THREE.WebGLRenderer({canvas:canvas, alpha:true, antialias:true});
+var renderer = new THREE.WebGLRenderer({canvas:canvas, alpha:true, antialias:true, powerPreference:'high-performance'});
 renderer.setSize(W, H);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setClearColor(0x000000, 0);
+if (THREE.sRGBEncoding !== undefined) renderer.outputEncoding = THREE.sRGBEncoding;
 
-scene.add(new THREE.AmbientLight(0x0a1a2a, 2));
-var key = new THREE.DirectionalLight(0x00ff88, 2.8);
-key.position.set(5, 9, 6);
+var hemi = new THREE.HemisphereLight(0xffeedd, 0x1a0808, 0.55);
+scene.add(hemi);
+scene.add(new THREE.AmbientLight(0x3a2a30, 0.35));
+var key = new THREE.DirectionalLight(0xffffff, 1.15);
+key.position.set(4.5, 10, 7);
 scene.add(key);
-var fill = new THREE.PointLight(0x004488, 1.5, 40);
-fill.position.set(-7, 3, -5);
-scene.add(fill);
-var rim = new THREE.PointLight(0x00ff88, 0.6, 25);
-rim.position.set(0, -5, -7);
+var warm = new THREE.PointLight(0xffcc66, 0.85, 45);
+warm.position.set(-5, 4, 4);
+scene.add(warm);
+var rim = new THREE.PointLight(0xe41f26, 0.65, 30);
+rim.position.set(6, 2, -6);
 scene.add(rim);
 
 var robot = new THREE.Group();
 
-var mBody = new THREE.MeshPhongMaterial({color:0x0b1520, shininess:140, specular:0x1a3344});
-var mAccent = new THREE.MeshPhongMaterial({color:0x00ff88, emissive:0x00ff88, emissiveIntensity:0.55, shininess:200});
-var mDark = new THREE.MeshPhongMaterial({color:0x060d10, shininess:50});
-var mWheel = new THREE.MeshPhongMaterial({color:0x0e1820, shininess:18});
-var mSensor = new THREE.MeshPhongMaterial({color:0x081420, shininess:90, specular:0x223344});
-
-var chassis = new THREE.Mesh(new THREE.BoxGeometry(3.3,0.2,2.25), mBody);
-robot.add(chassis);
-
-var top = new THREE.Mesh(new THREE.BoxGeometry(2.25,0.65,1.65), mBody);
-top.position.set(0,0.425,0);
-robot.add(top);
-
-var topStrip = new THREE.Mesh(new THREE.BoxGeometry(2.3,0.038,1.68), mAccent);
-topStrip.position.set(0,0.755,0);
-robot.add(topStrip);
-
-var sideL = new THREE.Mesh(new THREE.BoxGeometry(0.04,0.65,1.65), mAccent);
-sideL.position.set(-1.125,0.425,0);
-robot.add(sideL);
-var sideR = sideL.clone();
-sideR.position.x = 1.125;
-robot.add(sideR);
-
-var front = new THREE.Mesh(new THREE.BoxGeometry(0.95,0.32,0.12), mSensor);
-front.position.set(0,0.16,1.19);
-robot.add(front);
-
-var eyeG = new THREE.CylinderGeometry(0.1,0.1,0.16,16);
-var eMat1 = new THREE.MeshPhongMaterial({color:0x00ff88, emissive:0x00ff88, emissiveIntensity:1.8});
-var eMat2 = new THREE.MeshPhongMaterial({color:0x00ff88, emissive:0x00ff88, emissiveIntensity:1.8});
-var eye1 = new THREE.Mesh(eyeG, eMat1);
-eye1.rotation.x = Math.PI/2; eye1.position.set(-0.3,0.16,1.27);
-robot.add(eye1);
-var eye2 = new THREE.Mesh(eyeG, eMat2);
-eye2.rotation.x = Math.PI/2; eye2.position.set(0.3,0.16,1.27);
-robot.add(eye2);
-
-var ledG = new THREE.SphereGeometry(0.065,12,12);
-var ledMs = [0,1,2,3].map(function(){ return new THREE.MeshPhongMaterial({color:0x00ff88, emissive:0x00ff88, emissiveIntensity:1.1}); });
-var ledPos = [[-0.75,0.775,0.45],[-0.25,0.775,0.45],[0.25,0.775,0.45],[0.75,0.775,0.45]];
-var leds = ledPos.map(function(p,i){
-  var l = new THREE.Mesh(ledG, ledMs[i]);
-  l.position.set(p[0],p[1],p[2]);
-  robot.add(l);
-  return l;
+var paint = new THREE.MeshPhongMaterial({color:0xc41e1e, shininess:95, specular:0x665050});
+var paintDark = new THREE.MeshPhongMaterial({color:0x6b0f12, shininess:40, specular:0x332222});
+var yellow = new THREE.MeshPhongMaterial({color:0xffc400, emissive:0x886600, emissiveIntensity:0.12, shininess:80, specular:0xffeeaa});
+var rubber = new THREE.MeshPhongMaterial({color:0x141212, shininess:12, specular:0x111111});
+var chrome = new THREE.MeshPhongMaterial({color:0xc0c4cc, shininess:160, specular:0xffffff});
+var glass = new THREE.MeshPhongMaterial({
+  color:0x0a1628, shininess:120, specular:0x8899aa,
+  transparent:true, opacity:0.72, depthWrite:false
 });
+var headMatL = new THREE.MeshPhongMaterial({color:0xfff0aa, emissive:0xffcc44, emissiveIntensity:0.85, shininess:100});
+var headMatR = headMatL.clone();
 
-var wGeo = new THREE.CylinderGeometry(0.43,0.43,0.21,32);
-var rGeo = new THREE.CylinderGeometry(0.21,0.21,0.23,16);
-var rMat = new THREE.MeshPhongMaterial({color:0x00ff88, emissive:0x00ff88, emissiveIntensity:0.28});
-[[1.75,0,0.74],[1.75,0,-0.74],[-1.75,0,0.74],[-1.75,0,-0.74]].forEach(function(p){
-  var w = new THREE.Mesh(wGeo, mWheel); w.rotation.z=Math.PI/2; w.position.set(p[0],p[1],p[2]); robot.add(w);
-  var r = new THREE.Mesh(rGeo, rMat); r.rotation.z=Math.PI/2; r.position.set(p[0],p[1],p[2]); robot.add(r);
-});
+var floor = new THREE.Mesh(
+  new THREE.PlaneGeometry(24, 16),
+  new THREE.MeshPhongMaterial({color:0x06080a, shininess:5, transparent:true, opacity:0.35})
+);
+floor.rotation.x = -Math.PI / 2;
+floor.position.y = -0.52;
+scene.add(floor);
 
-var antG = new THREE.CylinderGeometry(0.022,0.022,0.55,8);
-var ant = new THREE.Mesh(antG, mAccent);
-ant.position.set(0.82,1.23,-0.28);
-robot.add(ant);
-var tipM = new THREE.MeshPhongMaterial({color:0x00ff88, emissive:0x00ff88, emissiveIntensity:2.2});
-var tip = new THREE.Mesh(new THREE.SphereGeometry(0.055,8,8), tipM);
-tip.position.set(0.82,1.52,-0.28);
-robot.add(tip);
+var under = new THREE.Mesh(new THREE.BoxGeometry(2.85, 0.12, 1.55), paintDark);
+under.position.set(0, -0.08, 0);
+robot.add(under);
 
-var gridG = new THREE.Group();
-var gMat = new THREE.LineBasicMaterial({color:0x00ff88, transparent:true, opacity:0.06});
-for(var i=-3;i<=3;i++){
-  gridG.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(i,-0.11,-3),new THREE.Vector3(i,-0.11,3)]),gMat));
-  gridG.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-3,-0.11,i),new THREE.Vector3(3,-0.11,i)]),gMat));
+var nose = new THREE.Mesh(new THREE.ConeGeometry(0.78, 1.35, 28, 1, false), paint);
+nose.rotation.x = Math.PI / 2;
+nose.position.set(0, 0.22, 1.42);
+robot.add(nose);
+
+var cabin = new THREE.Mesh(new THREE.SphereGeometry(0.78, 28, 20), paint);
+cabin.scale.set(1.2, 0.48, 1.45);
+cabin.position.set(0, 0.52, -0.42);
+robot.add(cabin);
+
+var roof = new THREE.Mesh(new THREE.BoxGeometry(1.35, 0.22, 1.05), paint);
+roof.position.set(0, 0.78, -0.35);
+robot.add(roof);
+
+var stripe = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.06, 2.35), yellow);
+stripe.position.set(0, 0.62, 0.15);
+robot.add(stripe);
+
+var wind = new THREE.Mesh(new THREE.BoxGeometry(1.05, 0.38, 0.08), glass);
+wind.position.set(0, 0.58, 0.72);
+wind.rotation.x = -0.22;
+robot.add(wind);
+
+var bumper = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.2, 0.18), yellow);
+bumper.position.set(0, 0.08, 2.05);
+robot.add(bumper);
+
+var hlL = new THREE.Mesh(new THREE.SphereGeometry(0.11, 16, 12), headMatL);
+hlL.scale.set(1, 0.75, 0.55);
+hlL.position.set(-0.38, 0.2, 1.95);
+robot.add(hlL);
+var hlR = new THREE.Mesh(new THREE.SphereGeometry(0.11, 16, 12), headMatR);
+hlR.scale.set(1, 0.75, 0.55);
+hlR.position.set(0.38, 0.2, 1.95);
+robot.add(hlR);
+
+var spoilerBar = new THREE.Mesh(new THREE.BoxGeometry(1.55, 0.06, 0.22), paintDark);
+spoilerBar.position.set(0, 0.72, -1.38);
+robot.add(spoilerBar);
+var spL = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.32, 0.08), paintDark);
+spL.position.set(-0.62, 0.56, -1.38);
+robot.add(spL);
+var spR = spL.clone();
+spR.position.x = 0.62;
+robot.add(spR);
+
+function addWheel(x, z){
+  var tire = new THREE.Mesh(new THREE.CylinderGeometry(0.36, 0.36, 0.26, 36), rubber);
+  tire.rotation.z = Math.PI / 2;
+  tire.position.set(x, -0.22, z);
+  robot.add(tire);
+  var rim = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 0.22, 20), chrome);
+  rim.rotation.z = Math.PI / 2;
+  rim.position.set(x, -0.22, z);
+  robot.add(rim);
+  var flair = new THREE.Mesh(new THREE.TorusGeometry(0.33, 0.038, 8, 32), yellow);
+  flair.rotation.y = Math.PI / 2;
+  flair.position.set(x, -0.22, z);
+  robot.add(flair);
 }
-robot.add(gridG);
+addWheel(1.22, 0.62);
+addWheel(1.22, -0.62);
+addWheel(-1.22, 0.62);
+addWheel(-1.22, -0.62);
 
-robot.position.y = -0.2;
+robot.position.set(0, -0.05, -0.35);
+robot.scale.setScalar(1.05);
 scene.add(robot);
 
 var ptGroup = new THREE.Group();
-var ptGeo = new THREE.SphereGeometry(0.028,4,4);
+var ptGeo = new THREE.SphereGeometry(0.02, 6, 6);
 var ptData = [];
-for(var j=0;j<28;j++){
-  var pm = new THREE.Mesh(ptGeo, new THREE.MeshBasicMaterial({color:0x00ff88, transparent:true, opacity:0.35}));
-  var ang = Math.random()*Math.PI*2;
-  var rad = 2.5+Math.random()*2.2;
-  pm.position.set(Math.cos(ang)*rad,(Math.random()-.5)*2.8,Math.sin(ang)*rad);
-  ptData.push({m:pm, spd:0.28+Math.random()*.5, off:Math.random()*Math.PI*2});
+for (var j = 0; j < 18; j++) {
+  var pm = new THREE.Mesh(ptGeo, new THREE.MeshBasicMaterial({
+    color:0xffb020, transparent:true, opacity:0.22
+  }));
+  var ang = Math.random() * Math.PI * 2;
+  var rad = 3.2 + Math.random() * 1.8;
+  pm.position.set(Math.cos(ang) * rad, (Math.random() - 0.4) * 2.2, Math.sin(ang) * rad);
+  ptData.push({ m: pm, spd: 0.2 + Math.random() * 0.35, off: Math.random() * Math.PI * 2 });
   ptGroup.add(pm);
 }
 scene.add(ptGroup);
@@ -694,20 +705,19 @@ function anim(){
   mx+=(tmx-mx)*.045;
   my+=(tmy-my)*.045;
 
-  robot.rotation.y = t*.28 + mx*.38;
-  robot.rotation.x = my*.14;
-  robot.position.y = -0.2+Math.sin(t*.65)*.11;
+  robot.rotation.y = t * 0.18 + mx * 0.32;
+  robot.rotation.x = my * 0.1;
+  robot.rotation.z = Math.sin(t * 0.35) * 0.02;
+  robot.position.y = -0.05 + Math.sin(t * 0.5) * 0.06;
 
-  eMat1.emissiveIntensity = 0.9+Math.sin(t*2.1)*.9;
-  eMat2.emissiveIntensity = 0.9+Math.cos(t*2.1)*.9;
-  tipM.emissiveIntensity = 1.6+Math.sin(t*3.2)*.6;
-  ledMs.forEach(function(m,i){ m.emissiveIntensity = 0.5+Math.sin(t*1.8+i*.9)*.6; });
+  headMatL.emissiveIntensity = 0.55 + Math.sin(t * 2.2) * 0.35;
+  headMatR.emissiveIntensity = 0.55 + Math.cos(t * 2.2) * 0.35;
 
   ptData.forEach(function(d){
-    d.m.position.y += Math.sin(t*d.spd+d.off)*.005;
-    d.m.material.opacity = 0.12+Math.sin(t*d.spd+d.off)*.13;
+    d.m.position.y += Math.sin(t * d.spd + d.off) * 0.003;
+    d.m.material.opacity = 0.08 + Math.sin(t * d.spd + d.off) * 0.1;
   });
-  ptGroup.rotation.y = t*.04;
+  ptGroup.rotation.y = t * 0.025;
 
   renderer.render(scene,cam);
 }
