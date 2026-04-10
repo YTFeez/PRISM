@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="KASHOW — robot autonome pour le concours Paul Cornut 2026 à Lisieux. Navigation, capteurs, équipe en piste.">
+<title>KASHOW — Paul Cornut 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<div class="noise" aria-hidden="true"></div>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header" id="header">
+  <div class="header-inner">
+    <a href="#top" class="brand">KASHOW <small>PAUL CORNUT</small></a>
+    <nav class="nav-desktop" aria-label="Navigation principale">
+      <a href="#about">PROJET</a>
+      <a href="#specs">SPECS</a>
+      <a href="#perf">PERF</a>
+      <a href="#mission">MISSION</a>
+    </nav>
+    <div class="header-status">
+      <span class="pulse" aria-hidden="true"></span>
+      EN PISTE
+    </div>
+    <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMobile" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<nav class="nav-mobile" id="navMobile" aria-label="Menu mobile">
+  <a href="#about">PROJET</a>
+  <a href="#specs">SPECS</a>
+  <a href="#perf">PERF</a>
+  <a href="#mission">MISSION</a>
+</nav>
+
+<section id="top" class="hero" aria-labelledby="hero-title">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-lines" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="hero-kicker">CONCOURS PAUL CORNUT — LISIEUX 2026</p>
+    <h1 id="hero-title" class="hero-title type-key type-key--hero">
+      <span class="type-key-line type-key-line--accent">KASHOW</span>
+    </h1>
+    <p class="hero-tagline">Robot autonome · Esprit piste · 100&nbsp;% navigation auto</p>
+    <p class="hero-lead">
+      Bolide de compétition inspiré de l’énergie «&nbsp;Ka-Chow&nbsp;» — <em>réactif, propre sur la ligne</em>, taillé pour gagner chaque épreuve.
+    </p>
+    <div class="hero-actions">
+      <a href="#about" class="btn btn-primary">DÉCOUVRIR LE PROJET</a>
+      <a href="#specs" class="btn btn-ghost">FICHE TECHNIQUE</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-pill"><strong>100%</strong><span>NAV. AUTO</span></div>
+      <div class="stat-pill"><strong>~10</strong><span>CAPTEURS</span></div>
+      <div class="stat-pill"><strong>90</strong><span>MIN AUTONOMIE</span></div>
+      <div class="stat-pill"><strong>500</strong><span>HZ BOUCLE</span></div>
+    </div>
+  </div>
+  <p class="scroll-hint">SCROLL</p>
+</section>
+
+<main>
+  <section id="about">
+    <div class="section-inner reveal">
+      <p class="section-label"><span>01 /</span> LE ROBOT</p>
+      <h2 class="section-title type-key">
+        <span class="type-key-line">Conçu pour</span>
+        <span class="type-key-line type-key-line--accent">gagner.</span>
+      </h2>
+      <div class="about-grid">
+        <div>
+          <div class="year-card">
+            <div class="y">2026</div>
+            <div class="lbl">PAUL CORNUT · LISIEUX</div>
+          </div>
+        </div>
+        <div class="prose">
+          <p class="lead">
+            <strong>KASHOW</strong> est notre robot pour le <strong>concours Paul Cornut 2026</strong> — navigation autonome, obstacles et précision de trajectoire.
+          </p>
+          <p>
+            Passage d’une base mBot à un châssis plus personnel type voiture de course, identité forte et mécanique pensée pour la piste.
+          </p>
+          <p>
+            Ultrasons, IR sol, luminosité, gyro&nbsp;; code modulaire pour s’adapter aux consignes. Moteurs avec encodeurs, LiPo, firmware orienté réactivité.
+          </p>
+          <div class="tags">
+            <span>Arduino</span>
+            <span>HC-SR04</span>
+            <span>IR ligne</span>
+            <span>Encodeurs</span>
+            <span>LiPo 2000 mAh</span>
+            <span>Thème Cars</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="specs">
+    <div class="section-inner reveal">
+      <p class="section-label"><span>02 /</span> SPÉCIFICATIONS</p>
+      <h2 class="section-title type-key">
+        <span class="type-key-line">Fiche</span>
+        <span class="type-key-line type-key-line--accent">technique.</span>
+      </h2>
+      <div class="cards">
+        <article class="card"><span class="card-num">01</span><h3>Capteurs</h3><p>Ultrason frontal, 2× IR sol, luminosité, gyro pour le cap.</p><p class="card-foot">DÉTECTION</p></article>
+        <article class="card"><span class="card-num">02</span><h3>Moteurs</h3><p>2× DC avec encodeurs (360 impulsions/tour). PWM haute fréquence.</p><p class="card-foot">MOBILITÉ</p></article>
+        <article class="card"><span class="card-num">03</span><h3>Connectivité</h3><p>Bluetooth BLE, Scratch, Arduino C++ ou MicroPython, série.</p><p class="card-foot">SOFTWARE</p></article>
+        <article class="card"><span class="card-num">04</span><h3>Alimentation</h3><p>LiPo 7,4&nbsp;V 2000&nbsp;mAh, ~90&nbsp;min, recharge USB-C.</p><p class="card-foot">ÉNERGIE</p></article>
+        <article class="card"><span class="card-num">05</span><h3>Châssis</h3><p>Alu anodisé, empattement 12&nbsp;cm, ~380&nbsp;g.</p><p class="card-foot">STRUCTURE</p></article>
+        <article class="card"><span class="card-num">06</span><h3>Contrôleur</h3><p>ATmega328P 16&nbsp;MHz, 32&nbsp;Ko Flash — boucle cible 500&nbsp;Hz.</p><p class="card-foot">COMPUTE</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="perf">
+    <div class="section-inner reveal">
+      <p class="section-label"><span>03 /</span> PERFORMANCES</p>
+      <h2 class="section-title type-key">
+        <span class="type-key-line">On les</span>
+        <span class="type-key-line type-key-line--accent">dépasse.</span>
+      </h2>
+      <p class="perf-lead">Chaque barre compare <strong>KASHOW</strong> à un <strong>profil adversaire fréquent</strong> sur le concours&nbsp;: robot resté sur un kit pédagogique d’origine, peu de capteurs, code minimal — le «&nbsp;parcours sans prépa poussée&nbsp;» qu’on croise souvent en fosse.</p>
+      <p class="perf-legend" aria-hidden="true"><span class="perf-lg perf-lg--us"></span> KASHOW <span class="perf-lg perf-lg--gap"></span> <span class="perf-lg perf-lg--ref"></span> Profil concurrent type (réf.)</p>
+      <div class="bars" id="perfBars">
+        <div class="cmp-block" data-w="92" data-ref="58">
+          <div class="cmp-top">
+            <span class="cmp-title">Navigation autonome</span>
+            <span class="cmp-hint">finir le parcours sans reprendre la manette</span>
+          </div>
+          <div class="cmp-lines">
+            <div class="cmp-line"><span class="cmp-who">KASHOW</span><div class="cmp-track"><div class="cmp-fill cmp-fill--us"></div></div><span class="cmp-val cmp-val--us">0%</span></div>
+            <div class="cmp-line"><span class="cmp-who cmp-who--ref">Réf. type</span><div class="cmp-track"><div class="cmp-fill cmp-fill--ref"></div></div><span class="cmp-val cmp-val--ref">~58%</span></div>
+          </div>
+        </div>
+        <div class="cmp-block" data-w="88" data-ref="52">
+          <div class="cmp-top">
+            <span class="cmp-title">Détection d’obstacles</span>
+            <span class="cmp-hint">éviter les plots sans tâtonner</span>
+          </div>
+          <div class="cmp-lines">
+            <div class="cmp-line"><span class="cmp-who">KASHOW</span><div class="cmp-track"><div class="cmp-fill cmp-fill--us"></div></div><span class="cmp-val cmp-val--us">0%</span></div>
+            <div class="cmp-line"><span class="cmp-who cmp-who--ref">Réf. type</span><div class="cmp-track"><div class="cmp-fill cmp-fill--ref"></div></div><span class="cmp-val cmp-val--ref">~52%</span></div>
+          </div>
+        </div>
+        <div class="cmp-block" data-w="86" data-ref="68">
+          <div class="cmp-top">
+            <span class="cmp-title">Suivi de ligne</span>
+            <span class="cmp-hint">virages serrés &amp; intersections</span>
+          </div>
+          <div class="cmp-lines">
+            <div class="cmp-line"><span class="cmp-who">KASHOW</span><div class="cmp-track"><div class="cmp-fill cmp-fill--us"></div></div><span class="cmp-val cmp-val--us">0%</span></div>
+            <div class="cmp-line"><span class="cmp-who cmp-who--ref">Réf. type</span><div class="cmp-track"><div class="cmp-fill cmp-fill--ref"></div></div><span class="cmp-val cmp-val--ref">~68%</span></div>
+          </div>
+        </div>
+        <div class="cmp-block" data-w="90" data-ref="54">
+          <div class="cmp-top">
+            <span class="cmp-title">Précision moteurs / trajectoire</span>
+            <span class="cmp-hint">encodeurs vs «&nbsp;à l’œil&nbsp;»</span>
+          </div>
+          <div class="cmp-lines">
+            <div class="cmp-line"><span class="cmp-who">KASHOW</span><div class="cmp-track"><div class="cmp-fill cmp-fill--us"></div></div><span class="cmp-val cmp-val--us">0%</span></div>
+            <div class="cmp-line"><span class="cmp-who cmp-who--ref">Réf. type</span><div class="cmp-track"><div class="cmp-fill cmp-fill--ref"></div></div><span class="cmp-val cmp-val--ref">~54%</span></div>
+          </div>
+        </div>
+        <div class="cmp-block" data-w="82" data-ref="45">
+          <div class="cmp-top">
+            <span class="cmp-title">Tenue en autonomie (énergie)</span>
+            <span class="cmp-hint">une manche complète sans panne sèche</span>
+          </div>
+          <div class="cmp-lines">
+            <div class="cmp-line"><span class="cmp-who">KASHOW</span><div class="cmp-track"><div class="cmp-fill cmp-fill--us"></div></div><span class="cmp-val cmp-val--us">0%</span></div>
+            <div class="cmp-line"><span class="cmp-who cmp-who--ref">Réf. type</span><div class="cmp-track"><div class="cmp-fill cmp-fill--ref"></div></div><span class="cmp-val cmp-val--ref">~45%</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="perf-note">Les pourcentages «&nbsp;réf. type&nbsp;» sont une <strong>estimation pédagogique</strong> (pas un classement officiel)&nbsp;: elles matérialisent l’écart entre un robot bricolé pour gagner et un montage standard encore proche du catalogue.</p>
+      <div class="kpi-row" id="kpiRow">
+        <div class="kpi"><span class="n" data-target="90">0</span> <span class="u">min</span><div class="l">Autonomie KASHOW</div><div class="kpi-vs">souvent ~35–45 min en piles AA</div></div>
+        <div class="kpi"><span class="n" data-target="10">0</span> <span class="u">×</span><div class="l">Capteurs actifs</div><div class="kpi-vs">souvent 3–5 sur kit nu</div></div>
+        <div class="kpi"><span class="n" data-target="2">0</span> <span class="u">×</span><div class="l">Moteurs asservis</div><div class="kpi-vs">1 paire, mais avec encodeurs</div></div>
+        <div class="kpi"><span class="n" data-target="500">0</span> <span class="u">Hz</span><div class="l">Boucle contrôle</div><div class="kpi-vs">souvent &lt;100 Hz en Scratch</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mission">
+    <div class="section-inner reveal">
+      <p class="section-label"><span>04 /</span> MISSION</p>
+      <div class="mission-split">
+        <div>
+          <div class="mission-title-wrap">
+            <h2 class="section-title type-key">
+              <span class="type-key-line">Concours</span>
+              <span class="type-key-line type-key-line--accent">Paul Cornut.</span>
+            </h2>
+          </div>
+          <div class="prose">
+            <p>Compétition robotique lycéenne majeure en Normandie&nbsp;: épreuves en autonomie sur piste.</p>
+            <p><strong>KASHOW</strong> — méca, électronique et code — pour la fiabilité sur chaque manche.</p>
+          </div>
+          <a href="#about" class="btn btn-primary mission-cta">EN SAVOIR PLUS</a>
+        </div>
+        <div class="mission-cards">
+          <div class="mission-card"><h4>OBJECTIF PRINCIPAL</h4><p>Parcours complet en moins de 120&nbsp;s sans collision détectée.</p></div>
+          <div class="mission-card"><h4>ÉPREUVE LIGNE</h4><p>Ligne noire sur fond blanc, virages et intersections.</p></div>
+          <div class="mission-card"><h4>ÉPREUVE OBSTACLES</h4><p>Détection et contournement sur le parcours.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-brand">KASHOW</span>
+    <p class="footer-copy">© 2026 — Concours robot <strong>Paul Cornut</strong> · Lisieux</p>
+    <span class="footer-tag">PIT//READY</span>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

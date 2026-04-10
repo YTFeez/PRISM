@@ -1,0 +1,8 @@
+{
+  "name": "kashow-site",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "lenis": "1.1.13"
+  }
+}
